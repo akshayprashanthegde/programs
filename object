@@ -1,0 +1,32 @@
+var student = {
+ name: "Mohan Kumar",
+ Dept: "ISE",
+ id: 056
+};
+// Using Object.values() method to get an array of all values of the object
+var values = Object.values(student);
+// Using Array.join() method to concatenate all values of the object into a single string
+var output = values.join(", ");
+alert(output); // Output: Mohan Kumar, ISE, 56
+
+
+
+
+
+<button id="btn-props">List properties of object</button>
+<div id="output"></div>
+
+
+
+const student = {
+  name: "Mohan Kumar",
+  Dept: "ISE",
+  id: 56,
+};
+
+const listProps = () => {
+  const props = Object.values(student).join(", ");
+  document.getElementById("output").innerHTML = props;
+};
+
+document.getElementById("btn-props").addEventListener("click", listProps);
