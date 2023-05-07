@@ -1,0 +1,98 @@
+function addElementAtIndex(arr, element, index)
+ {
+  arr.splice(index, 0, element);
+  return arr;
+}
+
+/*// Example usage
+const myArray = [1, 2, 3, 4, 5];
+const elementToAdd = 10;
+const indexToAdd = 2;*/
+const myArray = prompt("Enter the array").split(",");
+const elementToAdd = prompt("Enter element")//.split(",");
+const indexToAdd = prompt("Enter position")//.split(",");
+
+
+console.log("Original array:", myArray);
+const newArray = addElementAtIndex(myArray, elementToAdd, indexToAdd);
+alert("Array after adding element:"+ newArray);
+
+
+
+function deleteElementAtIndex(arr, index) {
+  if (index >= 0 && index < arr.length) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
+
+// Example usage
+const myArray = [1, 2, 3, 4, 5];
+const indexToDelete = 2;
+
+console.log("Original array:", myArray);
+const newArray = deleteElementAtIndex(myArray, indexToDelete);
+console.log("Array after deleting element:", newArray);
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Insert and Remove Elements from Array</title>
+</head>
+<body>
+  <h1>Insert and Remove Elements from Array</h1>
+  <label for="index">Index:</label>
+  <input type="text" id="index">
+  <br><br>
+  <label for="value">Value:</label>
+  <input type="text" id="value">
+  <br><br>
+  <button id="insert">Insert</button>
+  <button id="remove">Remove</button>
+  <br><br>
+  <div id="output"></div>
+  <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+const array = [1, 2, 3, 4, 5];
+
+const insertButton = document.getElementById("insert");
+const removeButton = document.getElementById("remove");
+const indexInput = document.getElementById("index");
+const valueInput = document.getElementById("value");
+const output = document.getElementById("output");
+
+insertButton.addEventListener("click", () => {
+  const index = parseInt(indexInput.value);
+  const value = parseInt(valueInput.value);
+  if (isNaN(index) || isNaN(value)) {
+    output.textContent = "Error: Invalid input";
+  } else {
+    array.splice(index, 0, value);
+    output.textContent = `Array after inserting ${value} at index ${index}: ${array}`;
+  }
+});
+
+removeButton.addEventListener("click", () => {
+  const index = parseInt(indexInput.value);
+  if (isNaN(index)) {
+    output.textContent = "Error: Invalid input";
+  } else {
+    const removed = array.splice(index, 1)[0];
+    output.textContent = `Array after removing element at index ${index}: ${array}\nRemoved element: ${removed}`;
+  }
+});
