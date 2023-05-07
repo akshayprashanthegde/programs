@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reverse Number Example</title>
+</head>
+<body>
+  <h1>Reverse Number Example</h1>
+  <label for="numberInput">Enter a number to reverse:</label>
+  <input type="number" id="numberInput">
+  <button id="reverseButton">Reverse</button>
+  <p id="result"></p>
+
+  <script src="new1.js"></script>
+</body>
+</html>
+
+
+
+
+const reverseNumber = (number) => {
+  const reversedNumber = Number(
+    String(number)
+      .split("")
+      .reverse()
+      .join("")
+  );
+  return reversedNumber;
+};
+
+const numberInput = document.getElementById("numberInput");
+const reverseButton = document.getElementById("reverseButton");
+const result = document.getElementById("result");
+
+reverseButton.addEventListener("click", () =>
+{
+  const inputNumber = Number(numberInput.value);
+  const reversedNumber = reverseNumber(inputNumber);
+  result.textContent = `The reversed number is ${reversedNumber}.`;
+});
