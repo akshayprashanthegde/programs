@@ -1,0 +1,36 @@
+function numTest(number) {
+ return new Promise((resolve, reject) => {
+ if (number < 20) {
+ resolve(`${number} is less than 20`);
+ } else if (number > 20) {
+ resolve(`${number} is greater than 20`);
+ } else {
+ reject(`${number} is equal to 20`);
+ }
+ });
+}
+ 
+2. Write a JavaScript code to handle multiple call back functions using JavaScript 
+promises (use promiseobject.then(onfulfilled,onrejected)).
+ 
+3. Write a program to store values into a set, and to retrieve value from the 
+set, to iterate over the set 
+// create a new set
+let mySet = new Set();
+// add values to the set
+mySet.add("apple");
+mySet.add("banana");
+mySet.add("cherry");
+// check if a value is in the set
+console.log(mySet.has("banana")); // true
+console.log(mySet.has("orange")); // false
+// get the size of the set
+console.log(mySet.size); // 3
+// remove a value from the set
+mySet.delete("banana");
+// iterate over the set
+mySet.forEach(function(value) {
+ console.log(value);
+});
+// clear the set
+mySet.clear();
