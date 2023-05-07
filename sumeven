@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sum of Even Numbers in an Array</title>
+</head>
+<body>
+  <h1>Sum of Even Numbers in an Array</h1>
+  <label for="array">Array:</label>
+  <input type="text" id="array">
+  <br><br>
+  <button id="sum">Calculate Sum</button>
+  <br><br>
+  <div id="output"></div>
+  <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+const arrayInput = document.getElementById("array");
+const sumButton = document.getElementById("sum");
+const output = document.getElementById("output");
+
+const sumEvens = (arr) => {
+  return arr.filter(num => num % 2 === 0).reduce((acc, val) => acc + val, 0);
+}
+
+sumButton.addEventListener("click", () => {
+  const array = arrayInput.value.split(",").map(num => parseInt(num.trim()));
+  const sum = sumEvens(array);
+  output.textContent = `The sum of the even numbers in the array is: ${sum}`;
+});
