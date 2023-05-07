@@ -1,0 +1,23 @@
+// create a new set
+let mySet = new Set();
+// add values to the set
+mySet.add("apple");
+mySet.add("banana");
+mySet.add("cherry");
+// check if a value is in the set
+console.log(mySet.has("banana")); // true
+console.log(mySet.has("orange")); // false
+// get the size of the set
+console.log(mySet.size); // 3
+// remove a value from the set
+mySet.delete("banana");
+// iterate over the set
+mySet.forEach(function(value) {
+ console.log(value);
+});
+// clear the set
+mySet.clear();
+
+
+
+
