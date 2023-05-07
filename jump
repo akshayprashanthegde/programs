@@ -1,0 +1,115 @@
+function jumpSearch(key, arr) {
+  const n = arr.length;
+  const jumpSize = Math.floor(Math.sqrt(n));
+  let prev = 0;
+  let step = jumpSize;
+  
+  while (arr[Math.min(step, n) - 1] < key) {
+    prev = step;
+    step += jumpSize;
+    if (prev >= n) {
+      return -1;
+    }
+  }
+  
+  while (arr[prev] < key) {
+    prev++;
+    if (prev === Math.min(step, n)) {
+      return -1;
+    }
+  }
+  
+  if (arr[prev] === key) {
+    return prev;
+  } else {
+    return -1;
+  }
+}
+
+const key = parseInt(prompt("Enter the key to search:"));
+const arr = prompt("Enter a list of numbers (comma-separated):")
+              .split(",")
+              .map(num => parseInt(num.trim()));
+
+const result = jumpSearch(key, arr);
+
+if (result !== -1) {
+  console.log(`Success! The key ${key} is found at index ${result}.`);
+} else {
+  console.log(`Failure! The key ${key} is not found in the list.`);
+}
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jump Search</title>
+</head>
+<body>
+  <label for="key-input">Enter the key to search:</label>
+  <input type="number" id="key-input">
+  <br>
+  <label for="list-input">Enter a list of numbers:</label>
+  <input type="text" id="list-input">
+  <br>
+  <button onclick="search()">Search</button>
+  <br>
+  <p id="result"></p>
+
+  <script>
+    function jumpSearch(key, arr) {
+      const n = arr.length;
+      const jumpSize = Math.floor(Math.sqrt(n));
+      let prev = 0;
+      let step = jumpSize;
+      
+      while (arr[Math.min(step, n) - 1] < key) {
+        prev = step;
+        step += jumpSize;
+        if (prev >= n) {
+          return -1;
+        }
+      }
+      
+      while (arr[prev] < key) {
+        prev++;
+        if (prev === Math.min(step, n)) {
+          return -1;
+        }
+      }
+      
+      if (arr[prev] === key) {
+        return prev;
+      } else {
+        return -1;
+      }
+    }
+
+    function search() {
+      const key = parseInt(document.getElementById("key-input").value);
+      const arr = document.getElementById("list-input").value
+                      .split(",")
+                      .map(num => parseInt(num.trim()));
+                      
+      const result = jumpSearch(key, arr);
+
+      if (result !== -1) {
+        document.getElementById("result").innerHTML = 
+          `Success! The key ${key} is found at index ${result}.`;
+      } else {
+        document.getElementById("result").innerHTML = 
+          `Failure! The key ${key} is not found in the list.`;
+      }
+    }
+  </script>
+</body>
+</html>
