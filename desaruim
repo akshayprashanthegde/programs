@@ -1,0 +1,54 @@
+function isDisariumNumber(n)
+{
+  let sum = 0;
+  const str = n.toString();
+  for (let i = 0; i < str.length; i++)
+   {
+    sum += Math.pow((str[i]), i+1);
+  }
+  return sum === n;
+}
+
+for (let i = 1; i <= 100; i++)
+ {
+  if (isDisariumNumber(i))
+  alert(i);
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Disarium Numbers</title>
+</head>
+<body>
+  <button onclick="printDisariumNumbers()">Print Disarium Numbers</button>
+  <br>
+  <p id="result"></p>
+
+  <script>
+    function isDisariumNumber(n) {
+      let sum = 0;
+      const digits = n.toString().split("").map(d => parseInt(d));
+      for (let i = 0; i < digits.length; i++) {
+        sum += Math.pow(digits[i], i + 1);
+      }
+      return sum === n;
+    }
+
+    function printDisariumNumbers() {
+      let numbers = [];
+      for (let i = 1; i <= 100; i++) {
+        if (isDisariumNumber(i)) {
+          numbers.push(i);
+        }
+      }
+      const result = numbers.join(", ");
+      document.getElementById("result").innerHTML = 
+        `The Disarium numbers between 1 and 100 are: ${result}.`;
+    }
+  </script>
+</body>
+</html>
