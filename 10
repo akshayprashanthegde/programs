@@ -1,0 +1,22 @@
+const numbers = [1, 2, 3, 4, 5];
+const multipliedNumbers = numbers.map(num => num * 10);
+alert(multipliedNumbers);
+
+
+
+
+
+
+<button id="btn-map">Multiply each number in array by 10 using map()</button>
+<div id="output"></div>
+
+
+
+const array = [1, 2, 3, 4, 5];
+
+const multiplyByTen = () => {
+  const result = array.map((num) => num * 10);
+  document.getElementById("output").innerHTML = result;
+};
+
+document.getElementById("btn-map").addEventListener("click", multiplyByTen);
