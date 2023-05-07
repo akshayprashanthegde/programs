@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sort String Alphabetically</title>
+</head>
+<body>
+<label for="inputString">Enter a string:</label>
+<input type="text" id="inputString">
+<button id="sortBtn">Sort Alphabetically</button>
+<p id="output"></p>
+  <script src="addaction.js" charset="utf-8"></script>>
+</body>
+</html>
+
+
+
+
+document.getElementById("sortBtn").addEventListener("click",function()
+ {
+    const inputString = document.getElementById("inputString").value;
+    const sortedString = inputString.split("").sort().join("");
+    output.textContent = "Sorted string: " + sortedString;
+ }
+);
