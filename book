@@ -1,0 +1,38 @@
+function bookFlight() {
+    return new Promise((resolve, reject) => {
+        // code to book flight goes here
+        const flightBooked = true;
+        if (flightBooked) {
+            resolve("Flight booked successfully");
+        } else {
+            reject("Flight booking failed");
+        }
+    });
+}
+
+function bookHotel()
+ {
+    return new Promise((resolve, reject) =>
+     {
+        bookFlight().then(result => {
+            // code to book hotel goes here
+            const hotelBooked = true;
+            if (hotelBooked) {
+                resolve("Hotel booked successfully");
+            } else {
+                reject("Hotel booking failed");
+            }
+        }).catch(error => {
+            reject(error);
+        });
+    });
+}
+
+bookHotel().then(result => {
+    console.log(result);
+}).catch(error => {
+    console.error(error);
+});
+
+
+
