@@ -1,0 +1,47 @@
+function tripToLocation(location)
+ {
+ return new Promise((resolve, reject) =>
+  {
+ if (location.toLowerCase() === "paris")
+  {
+ resolve("Let's take a trip to Paris");
+ }
+  else
+  {
+ reject("Invalid Location");
+ }
+ });
+}
+ location = prompt("Enter the location:");
+tripToLocation(location)
+.then((result) =>
+ console.log(result))
+ .catch((error) =>
+ console.log(error));
+
+
+
+
+
+
+<input type="text" id="locationInput">
+<button onclick="checkLocation()">Check Location</button>
+<div id="output"></div>
+
+
+
+function checkLocation() {
+    const locationInput = document.getElementById("locationInput").value;
+    const promise = new Promise((resolve, reject) => {
+        if (locationInput.toLowerCase() === "paris") {
+            resolve("Let's take a trip to Paris");
+        } else {
+            reject("Invalid Location");
+        }
+    });
+    promise.then(result => {
+        document.getElementById("output").innerHTML = result;
+    }).catch(error => {
+        document.getElementById("output").innerHTML = error;
+    });
+}
