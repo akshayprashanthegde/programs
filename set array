@@ -1,0 +1,41 @@
+//First we need to show Set deletes repeated values
+// Creating a Set with 100,000 unique values
+const mySet = new Set(Array.from({length: 100000}, (_, i) => i));
+// Creating an Array with 100,000 unique values
+const myArray = Array.from({length: 100000}, (_, i) => i);
+// Searching for a value in Set
+console.time("set-search");
+mySet.has(99999);
+console.timeEnd("set-search"); // Output: set-search: 0.033ms
+// Searching for a value in Array
+console.time("array-search");
+myArray.includes(99999);
+console.timeEnd("array-search"); // Output: array-search: 0.089ms
+
+
+
+
+let map = new Map();
+let obj = {};
+// Add 100,000 keys
+console.time("map add");
+for (let i = 0; i < 100000; i++) {
+ map.set(i, i);
+}
+console.timeEnd("map add");
+console.time("obj add");
+for (let i = 0; i < 100000; i++) {
+ obj[i] = i;
+}
+console.timeEnd("obj add");
+// Remove 100,000 keys
+console.time("map delete");
+for (let i = 0; i < 100000; i++) {
+ map.delete(i);
+}
+console.timeEnd("map delete");
+console.time("obj delete");
+for (let i = 0; i < 100000; i++) {
+ delete obj[i];
+}
+console.timeEnd("obj delete");
